@@ -200,12 +200,12 @@ export default function Receipts() {
             placeholder="Search receipts..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-8 pr-8 py-1.5 text-sm bg-white border border-[#e4e4e7] rounded-[4px] w-56 focus:outline-none focus:border-[#a1a1aa] transition-colors placeholder:text-[#a1a1aa]"
+            className="pl-8 pr-8 py-1.5 text-sm bg-white border border-[#a1a1aa] rounded-[4px] w-56 focus:outline-none focus:border-[#52525b] transition-colors placeholder:text-[#52525b]"
           />
           {search && (
             <button
               onClick={() => setSearch("")}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#a1a1aa] hover:text-[#71717a]"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#52525b] hover:text-[#71717a]"
             >
               <XIcon />
             </button>
@@ -230,17 +230,17 @@ export default function Receipts() {
           </button>
         )}
 
-        <span className="text-[11px] text-[#a1a1aa] mono ml-auto">
+        <span className="text-[11px] text-[#52525b] mono ml-auto">
           {filtered.length} {filtered.length === 1 ? "receipt" : "receipts"}
           {totalCount > PAGE_SIZE && ` (showing page ${page} of ${totalPages})`}
         </span>
       </div>
 
       {/* Table */}
-      <div className="border border-[#e4e4e7] rounded-[4px] overflow-hidden bg-white mb-5">
+      <div className="border border-[#a1a1aa] rounded-[4px] overflow-hidden bg-white mb-5">
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="border-b border-[#e4e4e7] bg-[#f9f9f9]">
+            <tr className="border-b border-[#a1a1aa] bg-[#f9f9f9]">
               <Th wide>Receipt</Th>
               <Th>Product</Th>
               <Th>Purchase Date</Th>
@@ -263,7 +263,7 @@ export default function Receipts() {
                         setSearch("");
                         setCategory("All Categories");
                       }}
-                      className="text-sm font-medium text-[#0d0d0d] border border-[#e4e4e7] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
+                      className="text-sm font-medium text-[#0d0d0d] border border-[#a1a1aa] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
                     >
                       Clear all filters
                     </button>
@@ -288,7 +288,7 @@ export default function Receipts() {
 
       {/* Multi-page pagination when total products with receipts exceed 100 */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-between border-t border-[#e4e4e7] pt-4">
+        <div className="flex items-center justify-between border-t border-[#a1a1aa] pt-4">
           <div className="text-xs text-[#71717a]">
             Page {page} of {totalPages} ({totalCount} total receipts)
           </div>
@@ -296,14 +296,14 @@ export default function Receipts() {
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page <= 1}
-              className="text-xs font-medium px-3 py-1.5 border border-[#e4e4e7] rounded-[4px] hover:bg-[#f4f4f5] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="text-xs font-medium px-3 py-1.5 border border-[#a1a1aa] rounded-[4px] hover:bg-[#f4f4f5] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               Previous
             </button>
             <button
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page >= totalPages}
-              className="text-xs font-medium px-3 py-1.5 border border-[#e4e4e7] rounded-[4px] hover:bg-[#f4f4f5] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="text-xs font-medium px-3 py-1.5 border border-[#a1a1aa] rounded-[4px] hover:bg-[#f4f4f5] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               Next
             </button>
@@ -344,7 +344,7 @@ function ReceiptRow({
           <FileThumb type={r.fileType} />
           <div>
             <div className="text-[13px] font-medium text-[#0d0d0d]">{r.filename}</div>
-            <div className="text-[11px] text-[#a1a1aa] mono mt-0.5">
+            <div className="text-[11px] text-[#52525b] mono mt-0.5">
               {r.fileSize} · Uploaded {formatDate(r.uploadDate)}
             </div>
           </div>
@@ -352,7 +352,7 @@ function ReceiptRow({
       </td>
       <td className="px-5 py-3.5">
         <div className="text-[13px] text-[#0d0d0d]">{r.productName}</div>
-        <div className="text-[11px] text-[#a1a1aa] mt-0.5">{r.category}</div>
+        <div className="text-[11px] text-[#52525b] mt-0.5">{r.category}</div>
       </td>
       <td className="px-5 py-3.5 mono text-[13px] text-[#52525b]">{formatDate(r.purchaseDate)}</td>
       <td className="px-5 py-3.5 text-[13px] text-[#52525b]">{r.store}</td>
@@ -439,12 +439,12 @@ function ReceiptViewer({
       {/* Backdrop */}
       <div className="fixed inset-0 bg-black/30 z-40" onClick={onClose} />
       {/* Panel */}
-      <div className="fixed right-0 top-0 h-full w-[480px] bg-white border-l border-[#e4e4e7] z-50 flex flex-col shadow-xl">
+      <div className="fixed right-0 top-0 h-full w-[480px] bg-white border-l border-[#a1a1aa] z-50 flex flex-col shadow-xl">
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-[#e4e4e7] shrink-0">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-[#a1a1aa] shrink-0">
           <div>
             <div className="text-[13px] font-semibold text-[#0d0d0d]">Receipt</div>
-            <div className="text-[11px] text-[#a1a1aa] mono mt-0.5">{r.filename}</div>
+            <div className="text-[11px] text-[#52525b] mono mt-0.5">{r.filename}</div>
           </div>
           <button
             onClick={onClose}
@@ -456,7 +456,7 @@ function ReceiptViewer({
 
         {/* Preview area */}
         <div className="flex-1 overflow-y-auto">
-          <div className="mx-5 mt-5 h-72 bg-[#f9f9f9] border border-[#e4e4e7] rounded-[4px] flex flex-col items-center justify-center overflow-hidden">
+          <div className="mx-5 mt-5 h-72 bg-[#f9f9f9] border border-[#a1a1aa] rounded-[4px] flex flex-col items-center justify-center overflow-hidden">
             {loading ? (
               <div className="flex flex-col items-center gap-2 text-xs text-[#71717a]">
                 <svg className="animate-spin h-5 w-5 text-[#0d0d0d]" viewBox="0 0 24 24" fill="none">
@@ -482,13 +482,13 @@ function ReceiptViewer({
                 />
               )
             ) : (
-              <span className="text-[12px] text-[#a1a1aa]">{r.fileType} preview</span>
+              <span className="text-[12px] text-[#52525b]">{r.fileType} preview</span>
             )}
           </div>
 
           {/* Metadata */}
           <div className="px-5 py-5">
-            <div className="text-[10px] font-semibold text-[#a1a1aa] mono uppercase tracking-wider mb-3">
+            <div className="text-[10px] font-semibold text-[#52525b] mono uppercase tracking-wider mb-3">
               Details
             </div>
             <div className="flex flex-col gap-3.5">
@@ -502,11 +502,11 @@ function ReceiptViewer({
         </div>
 
         {/* Footer actions */}
-        <div className="px-5 py-4 border-t border-[#e4e4e7] flex items-center gap-2 shrink-0">
+        <div className="px-5 py-4 border-t border-[#a1a1aa] flex items-center gap-2 shrink-0">
           <button
             onClick={onDownload}
             disabled={downloading}
-            className="flex items-center gap-1.5 flex-1 justify-center text-sm font-medium text-[#3f3f46] border border-[#e4e4e7] px-3 py-2 rounded-[4px] hover:bg-[#f4f4f5] transition-colors disabled:opacity-50"
+            className="flex items-center gap-1.5 flex-1 justify-center text-sm font-medium text-[#3f3f46] border border-[#a1a1aa] px-3 py-2 rounded-[4px] hover:bg-[#f4f4f5] transition-colors disabled:opacity-50"
           >
             <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
               <path
@@ -522,7 +522,7 @@ function ReceiptViewer({
           </button>
           <button
             onClick={onClose}
-            className="flex-1 text-sm font-medium text-[#3f3f46] border border-[#e4e4e7] px-3 py-2 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
+            className="flex-1 text-sm font-medium text-[#3f3f46] border border-[#a1a1aa] px-3 py-2 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
           >
             Close
           </button>
@@ -535,7 +535,7 @@ function ReceiptViewer({
 function MetaRow({ label, value, mono }: { label: string; value: string; mono?: boolean }) {
   return (
     <div>
-      <div className="text-[10px] font-semibold text-[#a1a1aa] mono uppercase tracking-wider mb-0.5">
+      <div className="text-[10px] font-semibold text-[#52525b] mono uppercase tracking-wider mb-0.5">
         {label}
       </div>
       <div className={`text-[13px] text-[#0d0d0d] ${mono ? "mono" : ""}`}>{value}</div>
@@ -548,11 +548,11 @@ function FileThumb({ type }: { type: string }) {
     type === "PDF"
       ? "bg-[#fef2f2] text-[#b91c1c]"
       : type === "JPG"
-      ? "bg-[#eff6ff] text-[#3b82f6]"
-      : "bg-[#f0fdf4] text-[#16a34a]";
+        ? "bg-[#eff6ff] text-[#3b82f6]"
+        : "bg-[#f0fdf4] text-[#16a34a]";
   return (
     <div
-      className={`w-8 h-9 rounded-[3px] border border-[#e4e4e7] flex items-center justify-center shrink-0 ${color}`}
+      className={`w-8 h-9 rounded-[3px] border border-[#a1a1aa] flex items-center justify-center shrink-0 ${color}`}
     >
       <span className="text-[9px] font-bold mono">{type}</span>
     </div>
@@ -561,8 +561,8 @@ function FileThumb({ type }: { type: string }) {
 
 function LoadingState() {
   return (
-    <div className="border border-[#e4e4e7] rounded-[4px] overflow-hidden bg-white p-8 animate-pulse">
-      <div className="h-5 w-48 bg-[#e4e4e7] rounded mb-4" />
+    <div className="border border-[#a1a1aa] rounded-[4px] overflow-hidden bg-white p-8 animate-pulse">
+      <div className="h-5 w-48 bg-[#a1a1aa] rounded mb-4" />
       <div className="space-y-3">
         <div className="h-12 bg-[#f4f4f5] rounded" />
         <div className="h-12 bg-[#f4f4f5] rounded" />
@@ -600,9 +600,8 @@ function Th({
 }) {
   return (
     <th
-      className={`text-[10px] font-semibold text-[#a1a1aa] px-5 py-2.5 mono uppercase tracking-wider whitespace-nowrap ${
-        wide ? "w-[30%]" : ""
-      } ${align === "right" ? "text-right" : "text-left"}`}
+      className={`text-[10px] font-semibold text-[#52525b] px-5 py-2.5 mono uppercase tracking-wider whitespace-nowrap ${wide ? "w-[30%]" : ""
+        } ${align === "right" ? "text-right" : "text-left"}`}
     >
       {children}
     </th>
@@ -623,7 +622,7 @@ function FilterSelect({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="appearance-none bg-white border border-[#e4e4e7] rounded-[4px] pl-3 pr-7 py-1.5 text-sm text-[#3f3f46] focus:outline-none focus:border-[#a1a1aa] transition-colors cursor-pointer"
+        className="appearance-none bg-white border border-[#a1a1aa] rounded-[4px] pl-3 pr-7 py-1.5 text-sm text-[#3f3f46] focus:outline-none focus:border-[#52525b] transition-colors cursor-pointer"
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>
@@ -635,7 +634,7 @@ function FilterSelect({
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
           <path
             d="M2 3.5L5 6.5L8 3.5"
-            stroke="#a1a1aa"
+            stroke="#52525b"
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -648,12 +647,12 @@ function FilterSelect({
 
 function EmptyNoReceipts() {
   return (
-    <div className="flex flex-col items-center justify-center py-20 text-center border border-[#e4e4e7] rounded-[4px] bg-white">
+    <div className="flex flex-col items-center justify-center py-20 text-center border border-[#a1a1aa] rounded-[4px] bg-white">
       <div className="w-10 h-10 bg-[#f4f4f5] rounded-[4px] flex items-center justify-center mb-3">
         <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-          <path d="M4 2h8l5 5v12H4V2z" stroke="#a1a1aa" strokeWidth="1.3" strokeLinejoin="round" />
-          <path d="M12 2v5h5" stroke="#a1a1aa" strokeWidth="1.3" />
-          <path d="M7 10h6M7 13h6M7 16h3" stroke="#a1a1aa" strokeWidth="1.3" strokeLinecap="round" />
+          <path d="M4 2h8l5 5v12H4V2z" stroke="#52525b" strokeWidth="1.3" strokeLinejoin="round" />
+          <path d="M12 2v5h5" stroke="#52525b" strokeWidth="1.3" />
+          <path d="M7 10h6M7 13h6M7 16h3" stroke="#52525b" strokeWidth="1.3" strokeLinecap="round" />
         </svg>
       </div>
       <div className="text-[13px] font-semibold text-[#0d0d0d] mb-1">No receipts yet</div>
@@ -667,8 +666,8 @@ function EmptyNoReceipts() {
 function SearchIcon() {
   return (
     <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-      <circle cx="6.5" cy="6.5" r="5" stroke="#a1a1aa" strokeWidth="1.5" />
-      <path d="M10.5 10.5L14 14" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="6.5" cy="6.5" r="5" stroke="#52525b" strokeWidth="1.5" />
+      <path d="M10.5 10.5L14 14" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }

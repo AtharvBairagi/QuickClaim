@@ -61,8 +61,8 @@ export default function ProductDetail({ productId, onNavigate }: Props) {
             err instanceof ApiError && err.status === 404
               ? "Product not found."
               : err instanceof ApiError && err.status === 403
-              ? "You do not have permission to view this product."
-              : err?.message || "Failed to load product."
+                ? "You do not have permission to view this product."
+                : err?.message || "Failed to load product."
           );
           setLoading(false);
         }
@@ -218,7 +218,7 @@ export default function ProductDetail({ productId, onNavigate }: Props) {
               </h2>
               <StatusBadge status={product.status} />
               {permissionState === "viewer" && (
-                <span className="text-[11px] font-medium text-[#52525b] bg-[#f4f4f5] border border-[#e4e4e7] px-2 py-0.5 rounded-[3px] mono">
+                <span className="text-[11px] font-medium text-[#52525b] bg-[#f4f4f5] border border-[#a1a1aa] px-2 py-0.5 rounded-[3px] mono">
                   Shared (View Only)
                 </span>
               )}
@@ -234,7 +234,7 @@ export default function ProductDetail({ productId, onNavigate }: Props) {
               <>
                 <button
                   onClick={() => onNavigate({ page: "add-product" })}
-                  className="flex items-center gap-1.5 text-sm font-medium text-[#3f3f46] border border-[#e4e4e7] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
+                  className="flex items-center gap-1.5 text-sm font-medium text-[#3f3f46] border border-[#a1a1aa] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
                 >
                   <EditIcon />
                   Edit
@@ -261,14 +261,14 @@ export default function ProductDetail({ productId, onNavigate }: Props) {
                 <button
                   onClick={() => setConfirmDelete(false)}
                   disabled={deleting}
-                  className="text-sm font-medium text-[#3f3f46] border border-[#e4e4e7] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
+                  className="text-sm font-medium text-[#3f3f46] border border-[#a1a1aa] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
                 >
                   Cancel
                 </button>
               </div>
             )
           ) : permissionState === "viewer" ? (
-            <div className="flex items-center gap-1.5 text-xs text-[#71717a] bg-[#fafafa] border border-[#e4e4e7] px-3 py-1.5 rounded-[4px]">
+            <div className="flex items-center gap-1.5 text-xs text-[#71717a] bg-[#fafafa] border border-[#a1a1aa] px-3 py-1.5 rounded-[4px]">
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
                 <rect x="2" y="5" width="10" height="8" rx="1.5" stroke="#71717a" strokeWidth="1.3" />
                 <path d="M4.5 5V3.5a2.5 2.5 0 015 0V5" stroke="#71717a" strokeWidth="1.3" />
@@ -314,20 +314,20 @@ function LoadingState() {
     <div className="px-8 py-8 max-w-[1100px] mx-auto animate-pulse">
       <div className="h-3.5 w-28 bg-[#f4f4f5] rounded mb-5" />
       <div className="flex items-start gap-4 mb-7">
-        <div className="w-12 h-12 bg-[#e4e4e7] rounded-[4px]" />
+        <div className="w-12 h-12 bg-[#a1a1aa] rounded-[4px]" />
         <div>
-          <div className="h-5 w-48 bg-[#e4e4e7] rounded mb-2" />
+          <div className="h-5 w-48 bg-[#a1a1aa] rounded mb-2" />
           <div className="h-3.5 w-32 bg-[#f4f4f5] rounded" />
         </div>
       </div>
       <div className="grid grid-cols-[1fr_320px] gap-6">
         <div className="flex flex-col gap-5">
-          <div className="h-48 bg-white border border-[#e4e4e7] rounded-[4px]" />
-          <div className="h-36 bg-white border border-[#e4e4e7] rounded-[4px]" />
+          <div className="h-48 bg-white border border-[#a1a1aa] rounded-[4px]" />
+          <div className="h-36 bg-white border border-[#a1a1aa] rounded-[4px]" />
         </div>
         <div className="flex flex-col gap-5">
-          <div className="h-40 bg-white border border-[#e4e4e7] rounded-[4px]" />
-          <div className="h-36 bg-white border border-[#e4e4e7] rounded-[4px]" />
+          <div className="h-40 bg-white border border-[#a1a1aa] rounded-[4px]" />
+          <div className="h-36 bg-white border border-[#a1a1aa] rounded-[4px]" />
         </div>
       </div>
     </div>
@@ -368,9 +368,9 @@ function WarrantySection({ product, days }: { product: ProductResponse; days: nu
   const hasStartDate = !!product.warrantyStartDate;
   const totalDays = hasStartDate
     ? Math.ceil(
-        (new Date(product.warrantyExpiry).getTime() - new Date(product.warrantyStartDate!).getTime()) /
-          (1000 * 60 * 60 * 24)
-      )
+      (new Date(product.warrantyExpiry).getTime() - new Date(product.warrantyStartDate!).getTime()) /
+      (1000 * 60 * 60 * 24)
+    )
     : 0;
   const elapsed = totalDays > 0 ? totalDays - Math.max(0, days) : 0;
   const pct = totalDays > 0 ? Math.min(100, Math.max(0, (elapsed / totalDays) * 100)) : 0;
@@ -379,8 +379,8 @@ function WarrantySection({ product, days }: { product: ProductResponse; days: nu
   const bgBorder = isExpired
     ? "border-[#fecaca] bg-[#fff8f8]"
     : isExpiring
-    ? "border-[#fde68a] bg-[#fffdf5]"
-    : "border-[#bbf7d0] bg-[#f8fffe]";
+      ? "border-[#fde68a] bg-[#fffdf5]"
+      : "border-[#bbf7d0] bg-[#f8fffe]";
 
   return (
     <Section title="Warranty">
@@ -388,21 +388,20 @@ function WarrantySection({ product, days }: { product: ProductResponse; days: nu
         <div className="flex items-center justify-between mb-1">
           <StatusBadge status={product.status} />
           <span
-            className={`mono text-[13px] font-semibold ${
-              isExpired ? "text-[#b91c1c]" : isExpiring ? "text-[#b45309]" : "text-[#15803d]"
-            }`}
+            className={`mono text-[13px] font-semibold ${isExpired ? "text-[#b91c1c]" : isExpiring ? "text-[#b45309]" : "text-[#15803d]"
+              }`}
           >
             {formatDaysRemaining(days)}
           </span>
         </div>
         {hasStartDate && (
           <div className="mt-3 mb-0.5">
-            <div className="h-1.5 bg-[#e4e4e7] rounded-full overflow-hidden">
+            <div className="h-1.5 bg-[#a1a1aa] rounded-full overflow-hidden">
               <div className={`h-full rounded-full transition-all ${barColor}`} style={{ width: `${pct}%` }} />
             </div>
             <div className="flex justify-between mt-1.5">
-              <span className="text-[10px] text-[#a1a1aa] mono">{formatDate(product.warrantyStartDate!)}</span>
-              <span className="text-[10px] text-[#a1a1aa] mono">{formatDate(product.warrantyExpiry)}</span>
+              <span className="text-[10px] text-[#52525b] mono">{formatDate(product.warrantyStartDate!)}</span>
+              <span className="text-[10px] text-[#52525b] mono">{formatDate(product.warrantyExpiry)}</span>
             </div>
           </div>
         )}
@@ -526,8 +525,8 @@ function ReceiptSection({
         err instanceof ApiError && err.status === 403
           ? "Only the product owner can upload a receipt."
           : err instanceof ApiError && err.status === 409
-          ? "A receipt already exists for this product. Delete it first."
-          : err?.message || "Failed to upload receipt.";
+            ? "A receipt already exists for this product. Delete it first."
+            : err?.message || "Failed to upload receipt.";
       setUploadError(msg);
     } finally {
       setUploading(false);
@@ -603,16 +602,15 @@ function ReceiptSection({
         </div>
       ) : receipt ? (
         <div className="flex flex-col gap-3">
-          <div className="flex items-center justify-between p-3.5 border border-[#e4e4e7] rounded-[4px] bg-white">
+          <div className="flex items-center justify-between p-3.5 border border-[#a1a1aa] rounded-[4px] bg-white">
             <div className="flex items-center gap-3 min-w-0">
               <div
-                className={`w-9 h-10 rounded-[3px] border border-[#e4e4e7] flex items-center justify-center shrink-0 ${
-                  fileType === "PDF"
-                    ? "bg-[#fef2f2] text-[#b91c1c]"
-                    : fileType === "JPG"
+                className={`w-9 h-10 rounded-[3px] border border-[#a1a1aa] flex items-center justify-center shrink-0 ${fileType === "PDF"
+                  ? "bg-[#fef2f2] text-[#b91c1c]"
+                  : fileType === "JPG"
                     ? "bg-[#eff6ff] text-[#3b82f6]"
                     : "bg-[#f0fdf4] text-[#16a34a]"
-                }`}
+                  }`}
               >
                 <span className="text-[10px] font-bold mono">{fileType}</span>
               </div>
@@ -620,7 +618,7 @@ function ReceiptSection({
                 <div className="text-[13px] font-medium text-[#0d0d0d] truncate max-w-[280px]">
                   {receipt.originalName}
                 </div>
-                <div className="text-[11px] text-[#a1a1aa] mono mt-0.5">
+                <div className="text-[11px] text-[#52525b] mono mt-0.5">
                   {formatFileSize(receipt.fileSize)} · Uploaded {formatDate(receipt.uploadedAt)}
                 </div>
               </div>
@@ -630,14 +628,14 @@ function ReceiptSection({
               <button
                 onClick={handleOpenPreview}
                 disabled={previewLoading}
-                className="text-[12px] font-medium text-[#3f3f46] hover:text-[#0d0d0d] border border-[#e4e4e7] px-2.5 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors disabled:opacity-50"
+                className="text-[12px] font-medium text-[#3f3f46] hover:text-[#0d0d0d] border border-[#a1a1aa] px-2.5 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors disabled:opacity-50"
               >
                 {previewLoading ? "Loading..." : "Preview"}
               </button>
               <button
                 onClick={handleDownload}
                 disabled={downloading}
-                className="text-[12px] font-medium text-[#0d0d0d] bg-[#f4f4f5] border border-[#e4e4e7] px-2.5 py-1.5 rounded-[4px] hover:bg-[#e4e4e7] transition-colors disabled:opacity-50 flex items-center gap-1.5"
+                className="text-[12px] font-medium text-[#0d0d0d] bg-[#f4f4f5] border border-[#a1a1aa] px-2.5 py-1.5 rounded-[4px] hover:bg-[#a1a1aa] transition-colors disabled:opacity-50 flex items-center gap-1.5"
               >
                 <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
                   <path d="M7 1v8M4 6l3 3 3-3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
@@ -668,7 +666,7 @@ function ReceiptSection({
                     <button
                       onClick={() => setConfirmDelete(false)}
                       disabled={deleting}
-                      className="text-[11px] text-[#71717a] border border-[#e4e4e7] px-2 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
+                      className="text-[11px] text-[#71717a] border border-[#a1a1aa] px-2 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
                     >
                       Cancel
                     </button>
@@ -723,11 +721,10 @@ function ReceiptSection({
               if (f) handleFileSelected(f);
             }}
             onClick={() => !uploading && fileInputRef.current?.click()}
-            className={`flex flex-col items-center justify-center py-7 border-2 border-dashed rounded-[4px] text-center cursor-pointer transition-colors ${
-              dragging
-                ? "border-[#0d0d0d] bg-[#f4f4f5]"
-                : "border-[#e4e4e7] hover:border-[#a1a1aa] hover:bg-[#fafafa]"
-            }`}
+            className={`flex flex-col items-center justify-center py-7 border-2 border-dashed rounded-[4px] text-center cursor-pointer transition-colors ${dragging
+              ? "border-[#0d0d0d] bg-[#f4f4f5]"
+              : "border-[#a1a1aa] hover:border-[#52525b] hover:bg-[#fafafa]"
+              }`}
           >
             <div className="w-9 h-9 bg-[#f4f4f5] rounded-[4px] flex items-center justify-center mb-2.5">
               {uploading ? (
@@ -742,7 +739,7 @@ function ReceiptSection({
             <div className="text-[13px] text-[#52525b] font-medium mb-0.5">
               {uploading ? "Uploading receipt..." : "Drag and drop, or browse to upload"}
             </div>
-            <div className="text-[11px] text-[#a1a1aa]">PDF, JPG, PNG, WEBP — up to 10 MB</div>
+            <div className="text-[11px] text-[#52525b]">PDF, JPG, PNG, WEBP — up to 10 MB</div>
           </div>
 
           {uploadError && (
@@ -759,12 +756,12 @@ function ReceiptSection({
         </div>
       ) : (
         /* Shared Viewer sees read-only empty state */
-        <div className="py-7 px-4 text-center border border-dashed border-[#e4e4e7] rounded-[4px] bg-[#fafafa]">
-          <div className="w-8 h-8 mx-auto mb-2 bg-[#f4f4f5] rounded-[4px] flex items-center justify-center text-[#a1a1aa]">
+        <div className="py-7 px-4 text-center border border-dashed border-[#a1a1aa] rounded-[4px] bg-[#fafafa]">
+          <div className="w-8 h-8 mx-auto mb-2 bg-[#f4f4f5] rounded-[4px] flex items-center justify-center text-[#52525b]">
             <ReceiptIcon />
           </div>
           <div className="text-[12px] font-medium text-[#52525b]">No receipt uploaded</div>
-          <p className="text-[11px] text-[#a1a1aa] mt-0.5">
+          <p className="text-[11px] text-[#52525b] mt-0.5">
             The owner has not attached a receipt to this product.
           </p>
         </div>
@@ -773,8 +770,8 @@ function ReceiptSection({
       {/* Authenticated Receipt Preview Modal */}
       {previewData && receipt && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-          <div className="bg-white rounded-[4px] border border-[#e4e4e7] shadow-2xl max-w-2xl w-full flex flex-col max-h-[85vh] overflow-hidden">
-            <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#e4e4e7]">
+          <div className="bg-white rounded-[4px] border border-[#a1a1aa] shadow-2xl max-w-2xl w-full flex flex-col max-h-[85vh] overflow-hidden">
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#a1a1aa]">
               <div>
                 <div className="text-sm font-semibold text-[#0d0d0d]">{receipt.originalName}</div>
                 <div className="text-[11px] text-[#71717a] mono">
@@ -800,16 +797,16 @@ function ReceiptSection({
                 <iframe
                   src={previewData.url}
                   title={receipt.originalName}
-                  className="w-full h-[60vh] rounded-[2px] border border-[#e4e4e7] bg-white"
+                  className="w-full h-[60vh] rounded-[2px] border border-[#a1a1aa] bg-white"
                 />
               )}
             </div>
 
-            <div className="flex items-center justify-end gap-2 px-5 py-3 border-t border-[#e4e4e7] bg-white">
+            <div className="flex items-center justify-end gap-2 px-5 py-3 border-t border-[#a1a1aa] bg-white">
               <button
                 onClick={handleDownload}
                 disabled={downloading}
-                className="text-xs font-medium text-[#0d0d0d] bg-[#f4f4f5] border border-[#e4e4e7] px-3 py-1.5 rounded-[4px] hover:bg-[#e4e4e7] transition-colors disabled:opacity-50 flex items-center gap-1.5"
+                className="text-xs font-medium text-[#0d0d0d] bg-[#f4f4f5] border border-[#a1a1aa] px-3 py-1.5 rounded-[4px] hover:bg-[#a1a1aa] transition-colors disabled:opacity-50 flex items-center gap-1.5"
               >
                 <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
                   <path d="M7 1v8M4 6l3 3 3-3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
@@ -819,7 +816,7 @@ function ReceiptSection({
               </button>
               <button
                 onClick={handleClosePreview}
-                className="text-xs font-medium text-[#71717a] border border-[#e4e4e7] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] hover:text-[#0d0d0d] transition-colors"
+                className="text-xs font-medium text-[#71717a] border border-[#a1a1aa] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] hover:text-[#0d0d0d] transition-colors"
               >
                 Close
               </button>
@@ -876,7 +873,7 @@ function SharingSection({
   return (
     <Section title="Shared Ownership">
       {permissionState === "viewer" ? (
-        <div className="p-3.5 bg-[#f9f9f9] border border-[#e4e4e7] rounded-[4px]">
+        <div className="p-3.5 bg-[#f9f9f9] border border-[#a1a1aa] rounded-[4px]">
           <div className="flex items-center gap-2 mb-1.5">
             <svg width="13" height="13" viewBox="0 0 14 14" fill="none" className="text-[#52525b]">
               <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.3" />
@@ -906,11 +903,11 @@ function SharingSection({
           )}
 
           {ownerships.length === 0 ? (
-            <div className="py-4 text-center border border-dashed border-[#e4e4e7] rounded-[4px]">
-              <div className="text-[12px] text-[#a1a1aa]">No co-owners yet</div>
+            <div className="py-4 text-center border border-dashed border-[#a1a1aa] rounded-[4px]">
+              <div className="text-[12px] text-[#52525b]">No co-owners yet</div>
             </div>
           ) : (
-            <div className="flex flex-col divide-y divide-[#f4f4f5] border border-[#e4e4e7] rounded-[4px] bg-white overflow-hidden">
+            <div className="flex flex-col divide-y divide-[#f4f4f5] border border-[#a1a1aa] rounded-[4px] bg-white overflow-hidden">
               {ownerships.map((o) => {
                 const targetUserId = o.sharedWith.id;
                 const initials = getInitials(o.sharedWith.name);
@@ -927,7 +924,7 @@ function SharingSection({
                         <div className="text-[12px] font-medium text-[#0d0d0d] truncate">
                           {o.sharedWith.name}
                         </div>
-                        <div className="text-[10px] text-[#a1a1aa] truncate">
+                        <div className="text-[10px] text-[#52525b] truncate">
                           {o.sharedWith.email}
                         </div>
                       </div>
@@ -961,7 +958,7 @@ function SharingSection({
                           <button
                             onClick={() => setConfirmUserId(null)}
                             disabled={isRemoving}
-                            className="text-[10px] text-[#71717a] border border-[#e4e4e7] px-1.5 py-0.5 rounded hover:bg-[#f4f4f5]"
+                            className="text-[10px] text-[#71717a] border border-[#a1a1aa] px-1.5 py-0.5 rounded hover:bg-[#f4f4f5]"
                           >
                             Cancel
                           </button>
@@ -976,7 +973,7 @@ function SharingSection({
 
           <button
             onClick={() => setModalOpen(true)}
-            className="w-full flex items-center justify-center gap-1.5 text-[12px] font-medium text-[#3f3f46] border border-[#e4e4e7] px-3 py-2 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
+            className="w-full flex items-center justify-center gap-1.5 text-[12px] font-medium text-[#3f3f46] border border-[#a1a1aa] px-3 py-2 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
           >
             <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
               <path d="M6 1v10M1 6h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -1039,10 +1036,10 @@ function ShareModal({
         err instanceof ApiError && err.status === 404
           ? "User with this email does not exist."
           : err instanceof ApiError && err.status === 409
-          ? "Product is already shared with this user."
-          : err instanceof ApiError && err.status === 400
-          ? err.message || "Cannot share product with this email."
-          : err?.message || "Failed to share product.";
+            ? "Product is already shared with this user."
+            : err instanceof ApiError && err.status === 400
+              ? err.message || "Cannot share product with this email."
+              : err?.message || "Failed to share product.";
       setApiError(msg);
     } finally {
       setSubmitting(false);
@@ -1053,8 +1050,8 @@ function ShareModal({
     <>
       <div className="fixed inset-0 bg-black/30 z-40" onClick={onClose} />
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-        <div className="bg-white border border-[#e4e4e7] rounded-[4px] shadow-xl w-full max-w-sm">
-          <div className="flex items-center justify-between px-5 py-4 border-b border-[#e4e4e7]">
+        <div className="bg-white border border-[#a1a1aa] rounded-[4px] shadow-xl w-full max-w-sm">
+          <div className="flex items-center justify-between px-5 py-4 border-b border-[#a1a1aa]">
             <div className="text-[13px] font-semibold text-[#0d0d0d]">Share Product</div>
             <button
               onClick={onClose}
@@ -1089,11 +1086,10 @@ function ShareModal({
                 }}
                 placeholder="colleague@example.com"
                 autoFocus
-                className={`w-full text-[13px] border rounded-[4px] px-3 py-2 focus:outline-none transition-colors placeholder:text-[#d4d4d8] disabled:bg-[#f4f4f5] ${
-                  fieldError
-                    ? "border-[#fca5a5] bg-[#fff8f8] focus:border-[#dc2626]"
-                    : "border-[#e4e4e7] bg-white focus:border-[#a1a1aa]"
-                }`}
+                className={`w-full text-[13px] border rounded-[4px] px-3 py-2 focus:outline-none transition-colors placeholder:text-[#71717a] disabled:bg-[#f4f4f5] ${fieldError
+                  ? "border-[#fca5a5] bg-[#fff8f8] focus:border-[#dc2626]"
+                  : "border-[#a1a1aa] bg-white focus:border-[#52525b]"
+                  }`}
               />
               {fieldError && (
                 <div className="flex items-center gap-1 mt-1.5">
@@ -1107,11 +1103,11 @@ function ShareModal({
               )}
             </div>
 
-            <div className="flex items-start gap-2 px-3 py-2.5 bg-[#f9f9f9] border border-[#e4e4e7] rounded-[4px] mb-5">
+            <div className="flex items-start gap-2 px-3 py-2.5 bg-[#f9f9f9] border border-[#a1a1aa] rounded-[4px] mb-5">
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none" className="shrink-0 mt-0.5">
-                <circle cx="7" cy="7" r="5.5" stroke="#a1a1aa" strokeWidth="1.3" />
-                <path d="M7 6v4" stroke="#a1a1aa" strokeWidth="1.3" strokeLinecap="round" />
-                <circle cx="7" cy="4.5" r="0.7" fill="#a1a1aa" />
+                <circle cx="7" cy="7" r="5.5" stroke="#52525b" strokeWidth="1.3" />
+                <path d="M7 6v4" stroke="#52525b" strokeWidth="1.3" strokeLinecap="round" />
+                <circle cx="7" cy="4.5" r="0.7" fill="#52525b" />
               </svg>
               <p className="text-[11px] text-[#71717a] leading-relaxed">
                 This person will be able to <strong className="text-[#52525b]">view</strong> the product, preview receipts, and download documentation.
@@ -1140,7 +1136,7 @@ function ShareModal({
                 type="button"
                 onClick={onClose}
                 disabled={submitting}
-                className="flex-1 text-sm font-medium text-[#3f3f46] border border-[#e4e4e7] py-2 rounded-[4px] hover:bg-[#f4f4f5] transition-colors disabled:opacity-50"
+                className="flex-1 text-sm font-medium text-[#3f3f46] border border-[#a1a1aa] py-2 rounded-[4px] hover:bg-[#f4f4f5] transition-colors disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -1155,9 +1151,9 @@ function ShareModal({
 /* ── Shared primitives ── */
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="bg-white border border-[#e4e4e7] rounded-[4px] overflow-hidden">
-      <div className="px-5 py-3 border-b border-[#e4e4e7] bg-[#f9f9f9]">
-        <h3 className="text-[11px] font-semibold text-[#a1a1aa] mono uppercase tracking-wider">{title}</h3>
+    <div className="bg-white border border-[#a1a1aa] rounded-[4px] overflow-hidden">
+      <div className="px-5 py-3 border-b border-[#a1a1aa] bg-[#f9f9f9]">
+        <h3 className="text-[11px] font-semibold text-[#52525b] mono uppercase tracking-wider">{title}</h3>
       </div>
       <div className="px-5 py-4">{children}</div>
     </div>
@@ -1177,7 +1173,7 @@ function Field({
 }) {
   return (
     <div>
-      <div className="text-[10px] font-semibold text-[#a1a1aa] mono uppercase tracking-wider mb-1">{label}</div>
+      <div className="text-[10px] font-semibold text-[#52525b] mono uppercase tracking-wider mb-1">{label}</div>
       <div className={`text-[13px] text-[#0d0d0d] ${mono ? "mono" : ""} ${valueColor ?? ""}`}>{value}</div>
     </div>
   );
@@ -1222,8 +1218,8 @@ function TrashIcon() {
 function ReceiptIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M3 1h10v14l-2-1.5L9 15l-1-1.5L7 15l-2-1.5L3 15V1z" stroke="#a1a1aa" strokeWidth="1.3" strokeLinejoin="round" />
-      <path d="M6 5h4M6 8h4M6 11h2" stroke="#a1a1aa" strokeWidth="1.3" strokeLinecap="round" />
+      <path d="M3 1h10v14l-2-1.5L9 15l-1-1.5L7 15l-2-1.5L3 15V1z" stroke="#52525b" strokeWidth="1.3" strokeLinejoin="round" />
+      <path d="M6 5h4M6 8h4M6 11h2" stroke="#52525b" strokeWidth="1.3" strokeLinecap="round" />
     </svg>
   );
 }

@@ -431,7 +431,7 @@ export default function AddProduct({ onNavigate }: Props) {
             onChange={(e) => set("notes", e.target.value)}
             placeholder="Optional notes about this product..."
             rows={3}
-            className="w-full text-[13px] border border-[#e4e4e7] rounded-[4px] px-3 py-2 focus:outline-none focus:border-[#a1a1aa] transition-colors placeholder:text-[#d4d4d8] resize-none"
+            className="w-full text-[13px] border border-[#a1a1aa] rounded-[4px] px-3 py-2 focus:outline-none focus:border-[#52525b] transition-colors placeholder:text-[#71717a] resize-none"
           />
         </FormSection>
 
@@ -445,22 +445,21 @@ export default function AddProduct({ onNavigate }: Props) {
               onDragLeave={() => setDragging(false)}
               onDrop={handleDrop}
               onClick={() => fileRef.current?.click()}
-              className={`flex flex-col items-center justify-center py-10 border-2 border-dashed rounded-[4px] cursor-pointer transition-colors ${
-                dragging
-                  ? "border-[#0d0d0d] bg-[#f4f4f5]"
-                  : "border-[#d4d4d8] hover:border-[#a1a1aa] hover:bg-[#fafafa]"
-              }`}
+              className={`flex flex-col items-center justify-center py-10 border-2 border-dashed rounded-[4px] cursor-pointer transition-colors ${dragging
+                ? "border-[#0d0d0d] bg-[#f4f4f5]"
+                : "border-[#71717a] hover:border-[#52525b] hover:bg-[#fafafa]"
+                }`}
             >
               <div className="w-10 h-10 bg-[#f4f4f5] rounded-[4px] flex items-center justify-center mb-3">
                 <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                  <path d="M10 3v10M6 7l4-4 4 4" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M3 15h14" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M10 3v10M6 7l4-4 4 4" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M3 15h14" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </div>
               <div className="text-[13px] font-medium text-[#3f3f46] mb-0.5">
                 Drag and drop, or <span className="text-[#0d0d0d] underline underline-offset-2">browse</span>
               </div>
-              <div className="text-[11px] text-[#a1a1aa]">PDF, JPG, PNG, WEBP — up to 10 MB</div>
+              <div className="text-[11px] text-[#52525b]">PDF, JPG, PNG, WEBP — up to 10 MB</div>
               <input
                 ref={fileRef}
                 type="file"
@@ -476,7 +475,7 @@ export default function AddProduct({ onNavigate }: Props) {
             </div>
           )}
           {file && (
-            <p className="text-[11px] text-[#a1a1aa] mt-2">
+            <p className="text-[11px] text-[#52525b] mt-2">
               Receipt will be automatically uploaded when the product is saved.
             </p>
           )}
@@ -513,7 +512,7 @@ export default function AddProduct({ onNavigate }: Props) {
           <button
             onClick={() => onNavigate({ page: "products" })}
             disabled={submitting}
-            className="text-sm font-medium text-[#3f3f46] border border-[#e4e4e7] px-4 py-2 rounded-[4px] hover:bg-[#f4f4f5] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="text-sm font-medium text-[#3f3f46] border border-[#a1a1aa] px-4 py-2 rounded-[4px] hover:bg-[#f4f4f5] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Cancel
           </button>
@@ -539,9 +538,9 @@ export default function AddProduct({ onNavigate }: Props) {
 /* ── Form section wrapper ── */
 function FormSection({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="bg-white border border-[#e4e4e7] rounded-[4px] overflow-hidden">
-      <div className="px-5 py-3 border-b border-[#e4e4e7] bg-[#f9f9f9]">
-        <h3 className="text-[11px] font-semibold text-[#a1a1aa] mono uppercase tracking-wider">{title}</h3>
+    <div className="bg-white border border-[#a1a1aa] rounded-[4px] overflow-hidden">
+      <div className="px-5 py-3 border-b border-[#a1a1aa] bg-[#f9f9f9]">
+        <h3 className="text-[11px] font-semibold text-[#52525b] mono uppercase tracking-wider">{title}</h3>
       </div>
       <div className="px-5 py-5">{children}</div>
     </div>
@@ -605,7 +604,7 @@ function Input({
   return (
     <div className="relative">
       {prefix && (
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[13px] text-[#a1a1aa] pointer-events-none">
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[13px] text-[#52525b] pointer-events-none">
           {prefix}
         </span>
       )}
@@ -615,13 +614,11 @@ function Input({
         onChange={(e) => onChange(e.target.value)}
         onBlur={onBlur}
         placeholder={placeholder}
-        className={`w-full text-[13px] border rounded-[4px] px-3 py-2 focus:outline-none transition-colors placeholder:text-[#d4d4d8] ${
-          prefix ? "pl-6" : ""
-        } ${
-          hasError
+        className={`w-full text-[13px] border rounded-[4px] px-3 py-2 focus:outline-none transition-colors placeholder:text-[#71717a] ${prefix ? "pl-6" : ""
+          } ${hasError
             ? "border-[#fca5a5] bg-[#fff8f8] focus:border-[#dc2626]"
-            : "border-[#e4e4e7] bg-white focus:border-[#a1a1aa]"
-        }`}
+            : "border-[#a1a1aa] bg-white focus:border-[#52525b]"
+          }`}
       />
     </div>
   );
@@ -647,13 +644,11 @@ function SelectInput({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         onBlur={onBlur}
-        className={`w-full appearance-none text-[13px] border rounded-[4px] px-3 pr-8 py-2 focus:outline-none transition-colors cursor-pointer ${
-          value === "" ? "text-[#d4d4d8]" : "text-[#0d0d0d]"
-        } ${
-          hasError
+        className={`w-full appearance-none text-[13px] border rounded-[4px] px-3 pr-8 py-2 focus:outline-none transition-colors cursor-pointer ${value === "" ? "text-[#71717a]" : "text-[#0d0d0d]"
+          } ${hasError
             ? "border-[#fca5a5] bg-[#fff8f8] focus:border-[#dc2626]"
-            : "border-[#e4e4e7] bg-white focus:border-[#a1a1aa]"
-        }`}
+            : "border-[#a1a1aa] bg-white focus:border-[#52525b]"
+          }`}
       >
         {options.map((o) => (
           <option key={o.value} value={o.value} disabled={o.value === ""}>
@@ -663,7 +658,7 @@ function SelectInput({
       </select>
       <div className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2">
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-          <path d="M2 3.5L5 6.5L8 3.5" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M2 3.5L5 6.5L8 3.5" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
     </div>
@@ -679,17 +674,17 @@ function SelectedFile({ file, onRemove }: { file: File; onRemove: () => void }) 
       : `${(file.size / (1024 * 1024)).toFixed(1)} MB`;
 
   return (
-    <div className="flex items-center gap-3 p-3.5 border border-[#e4e4e7] rounded-[4px] bg-[#fafafa]">
-      <div className="w-9 h-10 bg-white border border-[#e4e4e7] rounded-[3px] flex items-center justify-center shrink-0">
+    <div className="flex items-center gap-3 p-3.5 border border-[#a1a1aa] rounded-[4px] bg-[#fafafa]">
+      <div className="w-9 h-10 bg-white border border-[#a1a1aa] rounded-[3px] flex items-center justify-center shrink-0">
         <span className="text-[9px] font-bold mono text-[#71717a]">{ext}</span>
       </div>
       <div className="flex-1 min-w-0">
         <div className="text-[13px] font-medium text-[#0d0d0d] truncate">{file.name}</div>
-        <div className="text-[11px] text-[#a1a1aa] mono mt-0.5">{ext} · {size}</div>
+        <div className="text-[11px] text-[#52525b] mono mt-0.5">{ext} · {size}</div>
       </div>
       <button
         onClick={onRemove}
-        className="text-[#a1a1aa] hover:text-[#52525b] transition-colors p-1"
+        className="text-[#52525b] hover:text-[#52525b] transition-colors p-1"
         aria-label="Remove file"
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

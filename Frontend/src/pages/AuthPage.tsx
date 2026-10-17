@@ -89,28 +89,26 @@ export default function AuthPage() {
       </div>
 
       {/* Auth Card */}
-      <div className="w-full max-w-md bg-white border border-[#e4e4e7] rounded-[4px] shadow-sm overflow-hidden">
+      <div className="w-full max-w-md bg-white border border-[#a1a1aa] rounded-[4px] shadow-sm overflow-hidden">
         {/* Mode Switcher Tabs */}
-        <div className="grid grid-cols-2 border-b border-[#e4e4e7] bg-[#fcfcfc]">
+        <div className="grid grid-cols-2 border-b border-[#a1a1aa] bg-[#fcfcfc]">
           <button
             type="button"
             onClick={() => switchMode("login")}
-            className={`py-3 text-sm font-medium transition-colors text-center ${
-              mode === "login"
-                ? "bg-white text-[#0d0d0d] border-b-2 border-[#0d0d0d] -mb-[1px]"
-                : "text-[#71717a] hover:text-[#0d0d0d] hover:bg-[#f4f4f5]"
-            }`}
+            className={`py-3 text-sm font-medium transition-colors text-center ${mode === "login"
+              ? "bg-white text-[#0d0d0d] border-b-2 border-[#0d0d0d] -mb-[1px]"
+              : "text-[#71717a] hover:text-[#0d0d0d] hover:bg-[#f4f4f5]"
+              }`}
           >
             Sign In
           </button>
           <button
             type="button"
             onClick={() => switchMode("register")}
-            className={`py-3 text-sm font-medium transition-colors text-center ${
-              mode === "register"
-                ? "bg-white text-[#0d0d0d] border-b-2 border-[#0d0d0d] -mb-[1px]"
-                : "text-[#71717a] hover:text-[#0d0d0d] hover:bg-[#f4f4f5]"
-            }`}
+            className={`py-3 text-sm font-medium transition-colors text-center ${mode === "register"
+              ? "bg-white text-[#0d0d0d] border-b-2 border-[#0d0d0d] -mb-[1px]"
+              : "text-[#71717a] hover:text-[#0d0d0d] hover:bg-[#f4f4f5]"
+              }`}
           >
             Create Account
           </button>
@@ -153,11 +151,10 @@ export default function AuthPage() {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Marcus Johnson"
                   disabled={submitting}
-                  className={`w-full text-sm border rounded-[4px] px-3 py-2 bg-white focus:outline-none transition-colors placeholder:text-[#d4d4d8] ${
-                    clientErrors.name
-                      ? "border-[#fca5a5] bg-[#fff8f8] focus:border-[#dc2626]"
-                      : "border-[#e4e4e7] focus:border-[#a1a1aa]"
-                  }`}
+                  className={`w-full text-sm border rounded-[4px] px-3 py-2 bg-white focus:outline-none transition-colors placeholder:text-[#71717a] ${clientErrors.name
+                    ? "border-[#fca5a5] bg-[#fff8f8] focus:border-[#dc2626]"
+                    : "border-[#a1a1aa] focus:border-[#52525b]"
+                    }`}
                 />
                 {clientErrors.name && (
                   <p className="text-[11px] text-[#b91c1c] mt-1">{clientErrors.name}</p>
@@ -175,11 +172,10 @@ export default function AuthPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
                 disabled={submitting}
-                className={`w-full text-sm border rounded-[4px] px-3 py-2 bg-white focus:outline-none transition-colors placeholder:text-[#d4d4d8] ${
-                  clientErrors.email
-                    ? "border-[#fca5a5] bg-[#fff8f8] focus:border-[#dc2626]"
-                    : "border-[#e4e4e7] focus:border-[#a1a1aa]"
-                }`}
+                className={`w-full text-sm border rounded-[4px] px-3 py-2 bg-white focus:outline-none transition-colors placeholder:text-[#71717a] ${clientErrors.email
+                  ? "border-[#fca5a5] bg-[#fff8f8] focus:border-[#dc2626]"
+                  : "border-[#a1a1aa] focus:border-[#52525b]"
+                  }`}
               />
               {clientErrors.email && (
                 <p className="text-[11px] text-[#b91c1c] mt-1">{clientErrors.email}</p>
@@ -196,11 +192,10 @@ export default function AuthPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 disabled={submitting}
-                className={`w-full text-sm border rounded-[4px] px-3 py-2 bg-white focus:outline-none transition-colors placeholder:text-[#d4d4d8] ${
-                  clientErrors.password
-                    ? "border-[#fca5a5] bg-[#fff8f8] focus:border-[#dc2626]"
-                    : "border-[#e4e4e7] focus:border-[#a1a1aa]"
-                }`}
+                className={`w-full text-sm border rounded-[4px] px-3 py-2 bg-white focus:outline-none transition-colors placeholder:text-[#71717a] ${clientErrors.password
+                  ? "border-[#fca5a5] bg-[#fff8f8] focus:border-[#dc2626]"
+                  : "border-[#a1a1aa] focus:border-[#52525b]"
+                  }`}
               />
               {clientErrors.password && (
                 <p className="text-[11px] text-[#b91c1c] mt-1">{clientErrors.password}</p>

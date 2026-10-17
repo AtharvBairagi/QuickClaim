@@ -86,7 +86,7 @@ export default function Settings() {
               <div className="w-14 h-14 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-lg font-semibold select-none">
                 {initials}
               </div>
-              <button className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white border border-[#e4e4e7] flex items-center justify-center shadow-sm hover:bg-[#f4f4f5] transition-colors">
+              <button className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white border border-[#a1a1aa] flex items-center justify-center shadow-sm hover:bg-[#f4f4f5] transition-colors">
                 <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
                   <path d="M7 1.5l1.5 1.5-5.5 5.5H1.5V7L7 1.5z" stroke="#52525b" strokeWidth="1.1" strokeLinejoin="round" />
                 </svg>
@@ -175,7 +175,7 @@ export default function Settings() {
               <button
                 onClick={handleSignOut}
                 disabled={loggingOut}
-                className="text-sm font-medium text-[#3f3f46] border border-[#e4e4e7] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors disabled:opacity-50"
+                className="text-sm font-medium text-[#3f3f46] border border-[#a1a1aa] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors disabled:opacity-50"
               >
                 {loggingOut ? "Signing out..." : "Sign Out"}
               </button>
@@ -200,9 +200,9 @@ export default function Settings() {
 
 function SettingsSection({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="bg-white border border-[#e4e4e7] rounded-[4px] overflow-hidden">
-      <div className="px-5 py-3 border-b border-[#e4e4e7] bg-[#f9f9f9]">
-        <h3 className="text-[11px] font-semibold text-[#a1a1aa] mono uppercase tracking-wider">{title}</h3>
+    <div className="bg-white border border-[#a1a1aa] rounded-[4px] overflow-hidden">
+      <div className="px-5 py-3 border-b border-[#a1a1aa] bg-[#f9f9f9]">
+        <h3 className="text-[11px] font-semibold text-[#52525b] mono uppercase tracking-wider">{title}</h3>
       </div>
       <div className="px-5 py-5">{children}</div>
     </div>
@@ -226,7 +226,7 @@ function TextInput({ value, onChange, placeholder, type = "text" }: {
   return (
     <input type={type} value={value} onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full text-[13px] border border-[#e4e4e7] rounded-[4px] px-3 py-2 bg-white focus:outline-none focus:border-[#a1a1aa] transition-colors placeholder:text-[#d4d4d8]" />
+      className="w-full text-[13px] border border-[#a1a1aa] rounded-[4px] px-3 py-2 bg-white focus:outline-none focus:border-[#52525b] transition-colors placeholder:text-[#71717a]" />
   );
 }
 
@@ -236,7 +236,7 @@ function Toggle({ checked, onChange }: { checked: boolean; onChange: () => void 
       role="switch"
       aria-checked={checked}
       onClick={onChange}
-      className={`relative w-9 h-5 rounded-full transition-colors shrink-0 ${checked ? "bg-[#0d0d0d]" : "bg-[#d4d4d8]"}`}
+      className={`relative w-9 h-5 rounded-full transition-colors shrink-0 ${checked ? "bg-[#0d0d0d]" : "bg-[#71717a]"}`}
     >
       <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${checked ? "translate-x-4" : "translate-x-0.5"}`} />
     </button>

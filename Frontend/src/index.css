@@ -33,7 +33,7 @@
   --muted-foreground: #71717a;
   --accent: #f4f4f5;
   --accent-foreground: #0d0d0d;
-  --border: #e4e4e7;
+  --border: #a1a1aa;
   --ring: #0d0d0d;
   --radius: 4px;
 }
@@ -42,7 +42,9 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -60,15 +62,18 @@ body {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--border);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
+  background: #52525b;
 }
 
 .mono {

@@ -235,8 +235,8 @@ export default function Products({ onNavigate }: { onNavigate: (r: AppRoute) => 
         <div className="relative">
           <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-              <circle cx="6.5" cy="6.5" r="5" stroke="#a1a1aa" strokeWidth="1.5" />
-              <path d="M10.5 10.5L14 14" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="6.5" cy="6.5" r="5" stroke="#52525b" strokeWidth="1.5" />
+              <path d="M10.5 10.5L14 14" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </div>
           <input
@@ -244,12 +244,12 @@ export default function Products({ onNavigate }: { onNavigate: (r: AppRoute) => 
             placeholder="Search products..."
             value={search}
             onChange={(e) => handleSearchChange(e.target.value)}
-            className="pl-8 pr-8 py-1.5 text-sm bg-white border border-[#e4e4e7] rounded-[4px] w-56 focus:outline-none focus:border-[#a1a1aa] transition-colors placeholder:text-[#a1a1aa]"
+            className="pl-8 pr-8 py-1.5 text-sm bg-white border border-[#a1a1aa] rounded-[4px] w-56 focus:outline-none focus:border-[#52525b] transition-colors placeholder:text-[#52525b]"
           />
           {search && (
             <button
               onClick={() => handleSearchChange("")}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#a1a1aa] hover:text-[#71717a]"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#52525b] hover:text-[#71717a]"
             >
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
                 <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -273,11 +273,11 @@ export default function Products({ onNavigate }: { onNavigate: (r: AppRoute) => 
         />
 
         {/* Divider */}
-        <div className="w-px h-5 bg-[#e4e4e7] mx-0.5" />
+        <div className="w-px h-5 bg-[#a1a1aa] mx-0.5" />
 
         {/* Sort */}
         <div className="flex items-center gap-1.5">
-          <span className="text-[11px] text-[#a1a1aa] font-medium mono uppercase tracking-wide">Sort</span>
+          <span className="text-[11px] text-[#52525b] font-medium mono uppercase tracking-wide">Sort</span>
           <FilterSelect value={sort} onChange={setSort} options={SORT_OPTIONS} />
         </div>
 
@@ -295,16 +295,16 @@ export default function Products({ onNavigate }: { onNavigate: (r: AppRoute) => 
         )}
 
         {/* Result count */}
-        <span className="text-[11px] text-[#a1a1aa] mono ml-auto">
+        <span className="text-[11px] text-[#52525b] mono ml-auto">
           {filtered.length} {filtered.length === 1 ? "product" : "products"}
         </span>
       </div>
 
       {/* Table */}
-      <div className="border border-[#e4e4e7] rounded-[4px] overflow-hidden bg-white mb-5">
+      <div className="border border-[#a1a1aa] rounded-[4px] overflow-hidden bg-white mb-5">
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="border-b border-[#e4e4e7] bg-[#f9f9f9]">
+            <tr className="border-b border-[#a1a1aa] bg-[#f9f9f9]">
               <Th wide>Product</Th>
               <Th>Category</Th>
               <Th>Purchase Date</Th>
@@ -361,18 +361,18 @@ function LoadingState() {
     <div className="animate-pulse">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <div className="h-5 w-20 bg-[#e4e4e7] rounded mb-2" />
+          <div className="h-5 w-20 bg-[#a1a1aa] rounded mb-2" />
           <div className="h-3.5 w-72 bg-[#f4f4f5] rounded" />
         </div>
-        <div className="h-8 w-28 bg-[#e4e4e7] rounded-[4px]" />
+        <div className="h-8 w-28 bg-[#a1a1aa] rounded-[4px]" />
       </div>
       <div className="h-9 bg-[#f4f4f5] rounded mb-5" />
-      <div className="bg-white border border-[#e4e4e7] rounded-[4px] overflow-hidden">
+      <div className="bg-white border border-[#a1a1aa] rounded-[4px] overflow-hidden">
         {[0, 1, 2, 3, 4].map((i) => (
           <div key={i} className="border-b border-[#f4f4f5] px-5 py-3.5 flex items-center gap-4 last:border-0">
             <div className="w-8 h-8 bg-[#f4f4f5] rounded-[4px]" />
             <div className="flex-1">
-              <div className="h-3.5 w-40 bg-[#e4e4e7] rounded mb-1.5" />
+              <div className="h-3.5 w-40 bg-[#a1a1aa] rounded mb-1.5" />
               <div className="h-3 w-20 bg-[#f4f4f5] rounded" />
             </div>
             <div className="h-3.5 w-24 bg-[#f4f4f5] rounded" />
@@ -399,9 +399,8 @@ function PageShell({ children }: { children: ReactNode }) {
 function Th({ children, wide, align }: { children: ReactNode; wide?: boolean; align?: "right" }) {
   return (
     <th
-      className={`text-[10px] font-semibold text-[#a1a1aa] px-5 py-2.5 mono uppercase tracking-wider whitespace-nowrap ${
-        wide ? "w-[30%]" : ""
-      } ${align === "right" ? "text-right" : "text-left"}`}
+      className={`text-[10px] font-semibold text-[#52525b] px-5 py-2.5 mono uppercase tracking-wider whitespace-nowrap ${wide ? "w-[30%]" : ""
+        } ${align === "right" ? "text-right" : "text-left"}`}
     >
       {children}
     </th>
@@ -423,7 +422,7 @@ function FilterSelect({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="appearance-none bg-white border border-[#e4e4e7] rounded-[4px] pl-3 pr-7 py-1.5 text-sm text-[#3f3f46] focus:outline-none focus:border-[#a1a1aa] transition-colors cursor-pointer"
+        className="appearance-none bg-white border border-[#a1a1aa] rounded-[4px] pl-3 pr-7 py-1.5 text-sm text-[#3f3f46] focus:outline-none focus:border-[#52525b] transition-colors cursor-pointer"
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>
@@ -433,7 +432,7 @@ function FilterSelect({
       </select>
       <div className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2">
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-          <path d="M2 3.5L5 6.5L8 3.5" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M2 3.5L5 6.5L8 3.5" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
     </div>
@@ -479,7 +478,7 @@ function ProductRow({
           <CategoryInitial category={product.category ?? "?"} />
           <div>
             <div className="font-medium text-[#0d0d0d] text-[13px] leading-snug">{product.name}</div>
-            <div className="text-[11px] text-[#a1a1aa] mt-0.5">{product.brand}</div>
+            <div className="text-[11px] text-[#52525b] mt-0.5">{product.brand}</div>
           </div>
         </div>
       </td>
@@ -496,15 +495,14 @@ function ProductRow({
       <td className="px-5 py-3.5">
         <div className="mono text-[13px] text-[#52525b]">{formatDate(product.warrantyExpiry)}</div>
         <div
-          className={`text-[11px] mono mt-0.5 ${
-            days < 0
-              ? "text-[#b91c1c]"
-              : days < 30
+          className={`text-[11px] mono mt-0.5 ${days < 0
+            ? "text-[#b91c1c]"
+            : days < 30
               ? "text-[#b91c1c]"
               : days < 90
-              ? "text-[#b45309]"
-              : "text-[#a1a1aa]"
-          }`}
+                ? "text-[#b45309]"
+                : "text-[#52525b]"
+            }`}
         >
           {formatDaysRemaining(days)}
         </div>
@@ -543,7 +541,7 @@ function ProductRow({
             </button>
             <div className="relative">
               <button
-                className={`p-1.5 rounded-[3px] transition-colors ${menuOpen ? "bg-[#f4f4f5] text-[#0d0d0d]" : "text-[#a1a1aa] hover:text-[#52525b] hover:bg-[#f4f4f5]"}`}
+                className={`p-1.5 rounded-[3px] transition-colors ${menuOpen ? "bg-[#f4f4f5] text-[#0d0d0d]" : "text-[#52525b] hover:text-[#52525b] hover:bg-[#f4f4f5]"}`}
                 onClick={(e) => { e.stopPropagation(); onMenuToggle(); }}
                 aria-label="More actions"
               >
@@ -579,7 +577,7 @@ function ActionMenu({
 }) {
   return (
     <div
-      className="absolute right-0 top-8 w-36 bg-white border border-[#e4e4e7] rounded-[4px] shadow-md z-20 py-1"
+      className="absolute right-0 top-8 w-36 bg-white border border-[#a1a1aa] rounded-[4px] shadow-md z-20 py-1"
       onClick={(e) => e.stopPropagation()}
     >
       <MenuItem label="View" icon={<ViewIcon />} onClick={onView} />
@@ -604,11 +602,10 @@ function MenuItem({
   return (
     <button
       onClick={onClick}
-      className={`w-full flex items-center gap-2.5 px-3 py-2 text-[13px] transition-colors text-left ${
-        danger
-          ? "text-[#b91c1c] hover:bg-[#fef2f2]"
-          : "text-[#3f3f46] hover:bg-[#f9f9f9] hover:text-[#0d0d0d]"
-      }`}
+      className={`w-full flex items-center gap-2.5 px-3 py-2 text-[13px] transition-colors text-left ${danger
+        ? "text-[#b91c1c] hover:bg-[#fef2f2]"
+        : "text-[#3f3f46] hover:bg-[#f9f9f9] hover:text-[#0d0d0d]"
+        }`}
     >
       {icon}
       {label}
@@ -631,7 +628,7 @@ function Pagination({ current, total, onChange }: { current: number; total: numb
 
   return (
     <div className="flex items-center justify-between">
-      <span className="text-[12px] text-[#a1a1aa] mono">
+      <span className="text-[12px] text-[#52525b] mono">
         Page {current} of {total}
       </span>
       <div className="flex items-center gap-1">
@@ -643,16 +640,15 @@ function Pagination({ current, total, onChange }: { current: number; total: numb
         </PaginationBtn>
         {pages.map((p, i) =>
           p === "…" ? (
-            <span key={`ellipsis-${i}`} className="w-8 text-center text-[13px] text-[#a1a1aa]">…</span>
+            <span key={`ellipsis-${i}`} className="w-8 text-center text-[13px] text-[#52525b]">…</span>
           ) : (
             <button
               key={p}
               onClick={() => onChange(p as number)}
-              className={`w-8 h-8 rounded-[4px] text-[13px] font-medium transition-colors ${
-                p === current
-                  ? "bg-[#0d0d0d] text-white"
-                  : "text-[#52525b] hover:bg-[#f4f4f5] hover:text-[#0d0d0d]"
-              }`}
+              className={`w-8 h-8 rounded-[4px] text-[13px] font-medium transition-colors ${p === current
+                ? "bg-[#0d0d0d] text-white"
+                : "text-[#52525b] hover:bg-[#f4f4f5] hover:text-[#0d0d0d]"
+                }`}
             >
               {p}
             </button>
@@ -682,7 +678,7 @@ function PaginationBtn({
     <button
       onClick={onClick}
       disabled={disabled}
-      className="flex items-center gap-1 px-2.5 h-8 rounded-[4px] text-[13px] font-medium text-[#52525b] border border-[#e4e4e7] hover:bg-[#f4f4f5] hover:text-[#0d0d0d] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+      className="flex items-center gap-1 px-2.5 h-8 rounded-[4px] text-[13px] font-medium text-[#52525b] border border-[#a1a1aa] hover:bg-[#f4f4f5] hover:text-[#0d0d0d] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
     >
       {children}
     </button>
@@ -695,9 +691,9 @@ function EmptyNoProducts({ onNavigate }: { onNavigate: (r: AppRoute) => void }) 
     <div className="flex flex-col items-center justify-center py-24 text-center">
       <div className="w-12 h-12 bg-[#f4f4f5] rounded-[4px] flex items-center justify-center mb-4">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <rect x="2" y="5" width="20" height="16" rx="1.5" stroke="#a1a1aa" strokeWidth="1.5" />
-          <path d="M7 5V4a5 5 0 0110 0v1" stroke="#a1a1aa" strokeWidth="1.5" />
-          <path d="M9 13h6M12 10v6" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
+          <rect x="2" y="5" width="20" height="16" rx="1.5" stroke="#52525b" strokeWidth="1.5" />
+          <path d="M7 5V4a5 5 0 0110 0v1" stroke="#52525b" strokeWidth="1.5" />
+          <path d="M9 13h6M12 10v6" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       </div>
       <h3 className="text-[15px] font-semibold text-[#0d0d0d] mb-1">No products yet</h3>
@@ -723,9 +719,9 @@ function EmptyFiltered({ onClear }: { onClear: () => void }) {
     <div className="flex flex-col items-center justify-center py-16 text-center px-8">
       <div className="w-10 h-10 bg-[#f4f4f5] rounded-[4px] flex items-center justify-center mb-3">
         <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-          <circle cx="9" cy="9" r="7" stroke="#a1a1aa" strokeWidth="1.5" />
-          <path d="M13 13L18 18" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M7 9h4M9 7v4" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="9" cy="9" r="7" stroke="#52525b" strokeWidth="1.5" />
+          <path d="M13 13L18 18" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M7 9h4M9 7v4" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       </div>
       <div className="text-[13px] font-semibold text-[#0d0d0d] mb-1">No products found</div>
@@ -734,7 +730,7 @@ function EmptyFiltered({ onClear }: { onClear: () => void }) {
       </p>
       <button
         onClick={onClear}
-        className="text-sm font-medium text-[#0d0d0d] border border-[#e4e4e7] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
+        className="text-sm font-medium text-[#0d0d0d] border border-[#a1a1aa] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
       >
         Clear all filters
       </button>

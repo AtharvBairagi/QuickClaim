@@ -119,8 +119,8 @@ export default function ExpiringSoon({ onNavigate }: { onNavigate: (r: AppRoute)
         <div className="relative">
           <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-              <circle cx="6.5" cy="6.5" r="5" stroke="#a1a1aa" strokeWidth="1.5" />
-              <path d="M10.5 10.5L14 14" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="6.5" cy="6.5" r="5" stroke="#52525b" strokeWidth="1.5" />
+              <path d="M10.5 10.5L14 14" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </div>
           <input
@@ -128,7 +128,7 @@ export default function ExpiringSoon({ onNavigate }: { onNavigate: (r: AppRoute)
             placeholder="Search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-8 pr-3 py-1.5 text-sm bg-white border border-[#e4e4e7] rounded-[4px] w-48 focus:outline-none focus:border-[#a1a1aa] transition-colors placeholder:text-[#a1a1aa]"
+            className="pl-8 pr-3 py-1.5 text-sm bg-white border border-[#a1a1aa] rounded-[4px] w-48 focus:outline-none focus:border-[#52525b] transition-colors placeholder:text-[#52525b]"
           />
         </div>
 
@@ -147,15 +147,15 @@ export default function ExpiringSoon({ onNavigate }: { onNavigate: (r: AppRoute)
         />
 
         {/* Divider */}
-        <div className="w-px h-5 bg-[#e4e4e7] mx-0.5" />
+        <div className="w-px h-5 bg-[#a1a1aa] mx-0.5" />
 
         {/* Sort */}
         <div className="flex items-center gap-1.5">
-          <span className="text-[11px] text-[#a1a1aa] font-medium mono uppercase tracking-wide">Sort</span>
+          <span className="text-[11px] text-[#52525b] font-medium mono uppercase tracking-wide">Sort</span>
           <FilterSelect value={sort} onChange={setSort} options={SORT_OPTIONS} />
         </div>
 
-        <span className="text-[11px] text-[#a1a1aa] mono ml-auto">
+        <span className="text-[11px] text-[#52525b] mono ml-auto">
           {sorted.length} {sorted.length === 1 ? "product" : "products"}
         </span>
       </div>
@@ -166,10 +166,10 @@ export default function ExpiringSoon({ onNavigate }: { onNavigate: (r: AppRoute)
       ) : sorted.length === 0 ? (
         <EmptyFiltered onClear={() => { setSearch(""); setCategory("All Categories"); setPeriod("all"); }} />
       ) : (
-        <div className="border border-[#e4e4e7] rounded-[4px] overflow-hidden bg-white">
+        <div className="border border-[#a1a1aa] rounded-[4px] overflow-hidden bg-white">
           <table className="w-full text-sm border-collapse">
             <thead>
-              <tr className="border-b border-[#e4e4e7] bg-[#f9f9f9]">
+              <tr className="border-b border-[#a1a1aa] bg-[#f9f9f9]">
                 <Th wide>Product</Th>
                 <Th>Category</Th>
                 <Th>Expiry Date</Th>
@@ -202,18 +202,18 @@ function LoadingState() {
     <div className="animate-pulse">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <div className="h-5 w-32 bg-[#e4e4e7] rounded mb-2" />
+          <div className="h-5 w-32 bg-[#a1a1aa] rounded mb-2" />
           <div className="h-3.5 w-64 bg-[#f4f4f5] rounded" />
         </div>
         <div className="h-7 w-24 bg-[#fde68a] rounded-[4px]" />
       </div>
       <div className="h-9 bg-[#f4f4f5] rounded mb-5" />
-      <div className="bg-white border border-[#e4e4e7] rounded-[4px] overflow-hidden">
+      <div className="bg-white border border-[#a1a1aa] rounded-[4px] overflow-hidden">
         {[0, 1, 2, 3].map((i) => (
           <div key={i} className="border-b border-[#f4f4f5] px-5 py-3.5 flex items-center gap-4 last:border-0">
             <div className="w-8 h-8 bg-[#f4f4f5] rounded-[4px]" />
             <div className="flex-1">
-              <div className="h-3.5 w-40 bg-[#e4e4e7] rounded mb-1.5" />
+              <div className="h-3.5 w-40 bg-[#a1a1aa] rounded mb-1.5" />
               <div className="h-3 w-20 bg-[#f4f4f5] rounded" />
             </div>
             <div className="h-3.5 w-24 bg-[#f4f4f5] rounded" />
@@ -239,9 +239,8 @@ function PageShell({ children }: { children: ReactNode }) {
 function Th({ children, wide, align }: { children: ReactNode; wide?: boolean; align?: "right" }) {
   return (
     <th
-      className={`text-[10px] font-semibold text-[#a1a1aa] px-5 py-2.5 mono uppercase tracking-wider whitespace-nowrap ${
-        wide ? "w-[28%]" : ""
-      } ${align === "right" ? "text-right" : "text-left"}`}
+      className={`text-[10px] font-semibold text-[#52525b] px-5 py-2.5 mono uppercase tracking-wider whitespace-nowrap ${wide ? "w-[28%]" : ""
+        } ${align === "right" ? "text-right" : "text-left"}`}
     >
       {children}
     </th>
@@ -263,7 +262,7 @@ function FilterSelect({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="appearance-none bg-white border border-[#e4e4e7] rounded-[4px] pl-3 pr-7 py-1.5 text-sm text-[#3f3f46] focus:outline-none focus:border-[#a1a1aa] transition-colors cursor-pointer"
+        className="appearance-none bg-white border border-[#a1a1aa] rounded-[4px] pl-3 pr-7 py-1.5 text-sm text-[#3f3f46] focus:outline-none focus:border-[#52525b] transition-colors cursor-pointer"
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>
@@ -273,7 +272,7 @@ function FilterSelect({
       </select>
       <div className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2">
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-          <path d="M2 3.5L5 6.5L8 3.5" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M2 3.5L5 6.5L8 3.5" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
     </div>
@@ -309,7 +308,7 @@ function ExpiringRow({
           )}
           <div>
             <div className="font-medium text-[#0d0d0d] text-[13px]">{product.name}</div>
-            <div className="text-[11px] text-[#a1a1aa] mt-0.5">{product.brand}</div>
+            <div className="text-[11px] text-[#52525b] mt-0.5">{product.brand}</div>
           </div>
         </div>
       </td>
@@ -341,7 +340,7 @@ function ExpiringRow({
             Available
           </span>
         ) : (
-          <span className="text-[12px] text-[#a1a1aa]">Not uploaded</span>
+          <span className="text-[12px] text-[#52525b]">Not uploaded</span>
         )}
       </td>
 
@@ -383,12 +382,12 @@ function EmptyNoExpiring() {
 
 function EmptyFiltered({ onClear }: { onClear: () => void }) {
   return (
-    <div className="flex flex-col items-center justify-center py-16 text-center border border-[#e4e4e7] rounded-[4px] bg-white">
+    <div className="flex flex-col items-center justify-center py-16 text-center border border-[#a1a1aa] rounded-[4px] bg-white">
       <div className="text-[13px] font-semibold text-[#0d0d0d] mb-1">No matches</div>
       <p className="text-[12px] text-[#71717a] mb-4">Try adjusting your search or filters.</p>
       <button
         onClick={onClear}
-        className="text-sm font-medium text-[#0d0d0d] border border-[#e4e4e7] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
+        className="text-sm font-medium text-[#0d0d0d] border border-[#a1a1aa] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
       >
         Clear filters
       </button>

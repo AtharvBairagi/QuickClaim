@@ -89,8 +89,8 @@ export default function SharedWithMe({ onNavigate }: { onNavigate: (r: AppRoute)
         <div className="relative">
           <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-              <circle cx="6.5" cy="6.5" r="5" stroke="#a1a1aa" strokeWidth="1.5" />
-              <path d="M10.5 10.5L14 14" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="6.5" cy="6.5" r="5" stroke="#52525b" strokeWidth="1.5" />
+              <path d="M10.5 10.5L14 14" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </div>
           <input
@@ -98,12 +98,12 @@ export default function SharedWithMe({ onNavigate }: { onNavigate: (r: AppRoute)
             placeholder="Search shared products..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-8 pr-8 py-1.5 text-sm bg-white border border-[#e4e4e7] rounded-[4px] w-64 focus:outline-none focus:border-[#a1a1aa] transition-colors placeholder:text-[#a1a1aa]"
+            className="pl-8 pr-8 py-1.5 text-sm bg-white border border-[#a1a1aa] rounded-[4px] w-64 focus:outline-none focus:border-[#52525b] transition-colors placeholder:text-[#52525b]"
           />
           {search && (
             <button
               onClick={() => setSearch("")}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#a1a1aa] hover:text-[#71717a]"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#52525b] hover:text-[#71717a]"
             >
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
                 <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -111,16 +111,16 @@ export default function SharedWithMe({ onNavigate }: { onNavigate: (r: AppRoute)
             </button>
           )}
         </div>
-        <span className="text-[11px] text-[#a1a1aa] mono ml-auto">
+        <span className="text-[11px] text-[#52525b] mono ml-auto">
           {filtered.length} {filtered.length === 1 ? "product" : "products"}
         </span>
       </div>
 
       {/* Table */}
-      <div className="border border-[#e4e4e7] rounded-[4px] overflow-hidden bg-white">
+      <div className="border border-[#a1a1aa] rounded-[4px] overflow-hidden bg-white">
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="border-b border-[#e4e4e7] bg-[#f9f9f9]">
+            <tr className="border-b border-[#a1a1aa] bg-[#f9f9f9]">
               <Th wide>Product</Th>
               <Th>Shared By</Th>
               <Th>Category</Th>
@@ -138,7 +138,7 @@ export default function SharedWithMe({ onNavigate }: { onNavigate: (r: AppRoute)
                     <p className="text-[12px] text-[#71717a] mb-3">No shared products match your search.</p>
                     <button
                       onClick={() => setSearch("")}
-                      className="text-sm font-medium text-[#0d0d0d] border border-[#e4e4e7] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
+                      className="text-sm font-medium text-[#0d0d0d] border border-[#a1a1aa] px-3 py-1.5 rounded-[4px] hover:bg-[#f4f4f5] transition-colors"
                     >
                       Clear search
                     </button>
@@ -184,7 +184,7 @@ function SharedRow({
     <tr className={`${!last ? "border-b border-[#f4f4f5]" : ""} hover:bg-[#fafafa] transition-colors`}>
       <td className="px-5 py-3.5">
         <div className="font-medium text-[#0d0d0d] text-[13px]">{p.name}</div>
-        <div className="text-[11px] text-[#a1a1aa] mt-0.5">{p.brand || "—"}</div>
+        <div className="text-[11px] text-[#52525b] mt-0.5">{p.brand || "—"}</div>
       </td>
       <td className="px-5 py-3.5">
         <div className="flex items-center gap-2.5">
@@ -193,7 +193,7 @@ function SharedRow({
           </div>
           <div>
             <div className="text-[13px] text-[#0d0d0d] font-medium">{p.owner.name}</div>
-            <div className="text-[11px] text-[#a1a1aa]">{p.owner.email}</div>
+            <div className="text-[11px] text-[#52525b]">{p.owner.email}</div>
           </div>
         </div>
       </td>
@@ -216,18 +216,18 @@ function SharedRow({
 
 function LoadingSkeleton() {
   return (
-    <div className="border border-[#e4e4e7] rounded-[4px] overflow-hidden bg-white animate-pulse">
-      <div className="h-10 bg-[#f9f9f9] border-b border-[#e4e4e7]" />
+    <div className="border border-[#a1a1aa] rounded-[4px] overflow-hidden bg-white animate-pulse">
+      <div className="h-10 bg-[#f9f9f9] border-b border-[#a1a1aa]" />
       {[1, 2, 3].map((i) => (
         <div key={i} className="px-5 py-4 border-b border-[#f4f4f5] flex items-center justify-between">
           <div className="flex flex-col gap-1.5">
-            <div className="h-4 w-40 bg-[#e4e4e7] rounded" />
+            <div className="h-4 w-40 bg-[#a1a1aa] rounded" />
             <div className="h-3 w-20 bg-[#f4f4f5] rounded" />
           </div>
           <div className="h-4 w-32 bg-[#f4f4f5] rounded" />
           <div className="h-4 w-20 bg-[#f4f4f5] rounded" />
           <div className="h-6 w-16 bg-[#f4f4f5] rounded-full" />
-          <div className="h-4 w-10 bg-[#e4e4e7] rounded" />
+          <div className="h-4 w-10 bg-[#a1a1aa] rounded" />
         </div>
       ))}
     </div>
@@ -252,9 +252,8 @@ function PageHeader() {
 function Th({ children, wide, align }: { children: ReactNode; wide?: boolean; align?: "right" }) {
   return (
     <th
-      className={`text-[10px] font-semibold text-[#a1a1aa] px-5 py-2.5 mono uppercase tracking-wider whitespace-nowrap ${
-        wide ? "w-[28%]" : ""
-      } ${align === "right" ? "text-right" : "text-left"}`}
+      className={`text-[10px] font-semibold text-[#52525b] px-5 py-2.5 mono uppercase tracking-wider whitespace-nowrap ${wide ? "w-[28%]" : ""
+        } ${align === "right" ? "text-right" : "text-left"}`}
     >
       {children}
     </th>
@@ -263,13 +262,13 @@ function Th({ children, wide, align }: { children: ReactNode; wide?: boolean; al
 
 function EmptyNoShared() {
   return (
-    <div className="flex flex-col items-center justify-center py-20 text-center border border-[#e4e4e7] rounded-[4px] bg-white">
+    <div className="flex flex-col items-center justify-center py-20 text-center border border-[#a1a1aa] rounded-[4px] bg-white">
       <div className="w-10 h-10 bg-[#f4f4f5] rounded-[4px] flex items-center justify-center mb-3">
         <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-          <circle cx="7" cy="6" r="3" stroke="#a1a1aa" strokeWidth="1.3" />
-          <path d="M2 16c0-3.31 2.24-6 5-6" stroke="#a1a1aa" strokeWidth="1.3" strokeLinecap="round" />
-          <circle cx="14" cy="6" r="2.5" stroke="#a1a1aa" strokeWidth="1.3" />
-          <path d="M14 11c2.76 0 5 2.24 5 5" stroke="#a1a1aa" strokeWidth="1.3" strokeLinecap="round" />
+          <circle cx="7" cy="6" r="3" stroke="#52525b" strokeWidth="1.3" />
+          <path d="M2 16c0-3.31 2.24-6 5-6" stroke="#52525b" strokeWidth="1.3" strokeLinecap="round" />
+          <circle cx="14" cy="6" r="2.5" stroke="#52525b" strokeWidth="1.3" />
+          <path d="M14 11c2.76 0 5 2.24 5 5" stroke="#52525b" strokeWidth="1.3" strokeLinecap="round" />
         </svg>
       </div>
       <div className="text-[13px] font-semibold text-[#0d0d0d] mb-1">No products shared with you yet</div>

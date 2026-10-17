@@ -125,10 +125,10 @@ export default function Dashboard({ onNavigate }: { onNavigate: (r: AppRoute) =>
             View all →
           </button>
         </div>
-        <div className="border border-[#e4e4e7] rounded-[4px] overflow-hidden bg-white">
+        <div className="border border-[#a1a1aa] rounded-[4px] overflow-hidden bg-white">
           <table className="w-full text-sm border-collapse">
             <thead>
-              <tr className="border-b border-[#e4e4e7] bg-[#f9f9f9]">
+              <tr className="border-b border-[#a1a1aa] bg-[#f9f9f9]">
                 <Th wide>Product</Th>
                 <Th>Category</Th>
                 <Th>Expiry Date</Th>
@@ -169,10 +169,10 @@ export default function Dashboard({ onNavigate }: { onNavigate: (r: AppRoute) =>
             View all products →
           </button>
         </div>
-        <div className="border border-[#e4e4e7] rounded-[4px] overflow-hidden bg-white">
+        <div className="border border-[#a1a1aa] rounded-[4px] overflow-hidden bg-white">
           <table className="w-full text-sm border-collapse">
             <thead>
-              <tr className="border-b border-[#e4e4e7] bg-[#f9f9f9]">
+              <tr className="border-b border-[#a1a1aa] bg-[#f9f9f9]">
                 <Th wide>Product</Th>
                 <Th>Category</Th>
                 <Th>Purchase Date</Th>
@@ -210,18 +210,18 @@ function LoadingState() {
     <div className="px-8 py-8 max-w-[1200px] mx-auto animate-pulse">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <div className="h-5 w-28 bg-[#e4e4e7] rounded mb-2" />
+          <div className="h-5 w-28 bg-[#a1a1aa] rounded mb-2" />
           <div className="h-3.5 w-64 bg-[#f4f4f5] rounded" />
         </div>
-        <div className="h-8 w-28 bg-[#e4e4e7] rounded-[4px]" />
+        <div className="h-8 w-28 bg-[#a1a1aa] rounded-[4px]" />
       </div>
       <div className="grid grid-cols-4 gap-3 mb-8">
         {[0, 1, 2, 3].map((i) => (
-          <div key={i} className="bg-white border border-[#e4e4e7] rounded-[4px] px-5 pt-4 pb-4 h-24" />
+          <div key={i} className="bg-white border border-[#a1a1aa] rounded-[4px] px-5 pt-4 pb-4 h-24" />
         ))}
       </div>
-      <div className="h-40 bg-white border border-[#e4e4e7] rounded-[4px] mb-8" />
-      <div className="h-40 bg-white border border-[#e4e4e7] rounded-[4px]" />
+      <div className="h-40 bg-white border border-[#a1a1aa] rounded-[4px] mb-8" />
+      <div className="h-40 bg-white border border-[#a1a1aa] rounded-[4px]" />
     </div>
   );
 }
@@ -230,9 +230,8 @@ function LoadingState() {
 function Th({ children, wide, align }: { children: ReactNode; wide?: boolean; align?: "right" }) {
   return (
     <th
-      className={`text-[10px] font-semibold text-[#a1a1aa] px-5 py-2.5 mono uppercase tracking-wider whitespace-nowrap ${
-        wide ? "w-[28%]" : ""
-      } ${align === "right" ? "text-right" : "text-left"}`}
+      className={`text-[10px] font-semibold text-[#52525b] px-5 py-2.5 mono uppercase tracking-wider whitespace-nowrap ${wide ? "w-[28%]" : ""
+        } ${align === "right" ? "text-right" : "text-left"}`}
     >
       {children}
     </th>
@@ -247,28 +246,28 @@ function StatCard({ label, value, sub, color }: { label: string; value: number; 
     color === "green"
       ? "text-[#15803d]"
       : color === "amber"
-      ? "text-[#b45309]"
-      : color === "red"
-      ? "text-[#b91c1c]"
-      : "text-[#0d0d0d]";
+        ? "text-[#b45309]"
+        : color === "red"
+          ? "text-[#b91c1c]"
+          : "text-[#0d0d0d]";
 
   const accentBar =
     color === "green"
       ? "bg-[#16a34a]"
       : color === "amber"
-      ? "bg-[#d97706]"
-      : color === "red"
-      ? "bg-[#dc2626]"
-      : "bg-[#d4d4d8]";
+        ? "bg-[#d97706]"
+        : color === "red"
+          ? "bg-[#dc2626]"
+          : "bg-[#71717a]";
 
   return (
-    <div className="bg-white border border-[#e4e4e7] rounded-[4px] px-5 pt-4 pb-4 flex flex-col gap-2.5">
+    <div className="bg-white border border-[#a1a1aa] rounded-[4px] px-5 pt-4 pb-4 flex flex-col gap-2.5">
       <div className="flex items-center justify-between">
-        <div className="text-[10px] font-semibold text-[#a1a1aa] mono uppercase tracking-wider">{label}</div>
+        <div className="text-[10px] font-semibold text-[#52525b] mono uppercase tracking-wider">{label}</div>
         <div className={`w-1 h-4 rounded-full ${accentBar} opacity-70`} />
       </div>
       <div className={`text-[28px] font-bold mono leading-none ${valueColor}`}>{value}</div>
-      <div className="text-[11px] text-[#a1a1aa]">{sub}</div>
+      <div className="text-[11px] text-[#52525b]">{sub}</div>
     </div>
   );
 }
@@ -291,7 +290,7 @@ function ExpiringRow({
     <tr className={`${!last ? "border-b border-[#f4f4f5]" : ""} hover:bg-[#fafafa] transition-colors`}>
       <td className="px-5 py-3.5">
         <div className="font-medium text-[#0d0d0d] text-[13px]">{product.name}</div>
-        <div className="text-[11px] text-[#a1a1aa] mt-0.5">{product.brand || "—"}</div>
+        <div className="text-[11px] text-[#52525b] mt-0.5">{product.brand || "—"}</div>
       </td>
       <td className="px-5 py-3.5">
         <span className="text-[13px] text-[#52525b]">{product.category || "—"}</span>
@@ -336,7 +335,7 @@ function RecentRow({
     >
       <td className="px-5 py-3.5">
         <div className="font-medium text-[#0d0d0d] text-[13px]">{product.name}</div>
-        <div className="text-[11px] text-[#a1a1aa] mt-0.5">{product.brand || "—"}</div>
+        <div className="text-[11px] text-[#52525b] mt-0.5">{product.brand || "—"}</div>
       </td>
       <td className="px-5 py-3.5 text-[13px] text-[#52525b]">{product.category || "—"}</td>
       <td className="px-5 py-3.5">
@@ -359,9 +358,9 @@ function EmptyState({ onNavigate }: { onNavigate: (r: AppRoute) => void }) {
       <div className="max-w-sm w-full text-center">
         <div className="w-12 h-12 bg-[#f4f4f5] rounded-[4px] flex items-center justify-center mx-auto mb-4">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <rect x="2" y="5" width="20" height="16" rx="1.5" stroke="#a1a1aa" strokeWidth="1.5" />
-            <path d="M7 5V4a5 5 0 0110 0v1" stroke="#a1a1aa" strokeWidth="1.5" />
-            <path d="M9 13h6M12 10v6" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
+            <rect x="2" y="5" width="20" height="16" rx="1.5" stroke="#52525b" strokeWidth="1.5" />
+            <path d="M7 5V4a5 5 0 0110 0v1" stroke="#52525b" strokeWidth="1.5" />
+            <path d="M9 13h6M12 10v6" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         </div>
         <h3 className="text-base font-semibold text-[#0d0d0d] mb-1">No products yet</h3>

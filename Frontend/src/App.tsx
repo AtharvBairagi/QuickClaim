@@ -63,7 +63,7 @@ function MainApp() {
   if (initialError && !isAuthenticated) {
     return (
       <div className="h-screen w-screen flex flex-col items-center justify-center bg-[#f9f9f9] px-4">
-        <div className="w-full max-w-sm bg-white border border-[#e4e4e7] rounded-[4px] p-6 text-center shadow-sm">
+        <div className="w-full max-w-sm bg-white border border-[#a1a1aa] rounded-[4px] p-6 text-center shadow-sm">
           <div className="w-10 h-10 rounded-full bg-[#fef2f2] text-[#dc2626] flex items-center justify-center mx-auto mb-3">
             <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
               <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5" />

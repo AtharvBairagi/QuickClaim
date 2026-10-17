@@ -120,7 +120,7 @@ export default function Header({ activePage, onNavigate }: HeaderProps) {
   }, []);
 
   return (
-    <header className="h-14 border-b border-[#e4e4e7] bg-white flex items-center px-6 gap-4 shrink-0">
+    <header className="h-14 border-b border-[#a1a1aa] bg-white flex items-center px-6 gap-4 shrink-0">
       <h1 className="text-[15px] font-semibold text-[#0d0d0d] mr-auto">
         {pageTitles[activePage] ?? activePage}
       </h1>
@@ -129,8 +129,8 @@ export default function Header({ activePage, onNavigate }: HeaderProps) {
       <div className="relative">
         <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
           <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-            <circle cx="6.5" cy="6.5" r="5" stroke="#a1a1aa" strokeWidth="1.5" />
-            <path d="M10.5 10.5L14 14" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" />
+            <circle cx="6.5" cy="6.5" r="5" stroke="#52525b" strokeWidth="1.5" />
+            <path d="M10.5 10.5L14 14" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         </div>
         <input
@@ -138,12 +138,12 @@ export default function Header({ activePage, onNavigate }: HeaderProps) {
           placeholder="Search products…"
           value={searchVal}
           onChange={(e) => setSearchVal(e.target.value)}
-          className="pl-8 pr-3 py-1.5 text-sm bg-[#f4f4f5] border border-transparent rounded-[4px] w-56 focus:outline-none focus:border-[#a1a1aa] focus:bg-white transition-colors placeholder:text-[#a1a1aa]"
+          className="pl-8 pr-3 py-1.5 text-sm bg-[#f4f4f5] border border-transparent rounded-[4px] w-56 focus:outline-none focus:border-[#52525b] focus:bg-white transition-colors placeholder:text-[#52525b]"
         />
         {searchVal && (
           <button
             onClick={() => setSearchVal("")}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#a1a1aa] hover:text-[#71717a]"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#52525b] hover:text-[#71717a]"
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -174,8 +174,8 @@ export default function Header({ activePage, onNavigate }: HeaderProps) {
         </button>
 
         {notifOpen && (
-          <div className="absolute right-0 top-10 w-80 bg-white border border-[#e4e4e7] rounded-[4px] shadow-lg z-50 overflow-hidden">
-            <div className="px-4 py-3 border-b border-[#e4e4e7] flex items-center justify-between bg-[#f9f9f9]">
+          <div className="absolute right-0 top-10 w-80 bg-white border border-[#a1a1aa] rounded-[4px] shadow-lg z-50 overflow-hidden">
+            <div className="px-4 py-3 border-b border-[#a1a1aa] flex items-center justify-between bg-[#f9f9f9]">
               <span className="text-sm font-semibold text-[#0d0d0d]">Notifications</span>
               <span className="text-xs text-[#71717a] mono">
                 {unreadCount} {unreadCount === 1 ? "unread" : "unread"}
@@ -197,15 +197,13 @@ export default function Header({ activePage, onNavigate }: HeaderProps) {
                     <li
                       key={n.id}
                       onClick={() => handleNotificationClick(n)}
-                      className={`px-4 py-3 hover:bg-[#fafafa] cursor-pointer transition-colors ${
-                        !n.read ? "bg-[#fffdf7]" : "bg-white"
-                      }`}
+                      className={`px-4 py-3 hover:bg-[#fafafa] cursor-pointer transition-colors ${!n.read ? "bg-[#fffdf7]" : "bg-white"
+                        }`}
                     >
                       <div className="flex gap-2.5 items-start">
                         <div
-                          className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${
-                            !n.read ? "bg-[#d97706]" : "bg-transparent"
-                          }`}
+                          className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${!n.read ? "bg-[#d97706]" : "bg-transparent"
+                            }`}
                         />
                         <div className="min-w-0 flex-1">
                           <div className="text-[13px] text-[#0d0d0d] font-medium leading-snug">
@@ -214,7 +212,7 @@ export default function Header({ activePage, onNavigate }: HeaderProps) {
                           <div className="text-[12px] text-[#52525b] mt-0.5 leading-relaxed">
                             {n.message}
                           </div>
-                          <div className="text-[10px] text-[#a1a1aa] mono mt-1">
+                          <div className="text-[10px] text-[#52525b] mono mt-1">
                             {formatNotifTime(n.createdAt)}
                           </div>
                         </div>
@@ -229,7 +227,7 @@ export default function Header({ activePage, onNavigate }: HeaderProps) {
       </div>
 
       {/* Divider */}
-      <div className="w-px h-5 bg-[#e4e4e7]" />
+      <div className="w-px h-5 bg-[#a1a1aa]" />
 
       {/* Profile Menu */}
       <div className="relative" ref={profileRef}>
@@ -242,12 +240,12 @@ export default function Header({ activePage, onNavigate }: HeaderProps) {
           </div>
           <span className="text-sm font-medium text-[#3f3f46] max-w-[120px] truncate">{displayName}</span>
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M3 4.5L6 7.5L9 4.5" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
 
         {profileOpen && (
-          <div className="absolute right-0 top-10 w-48 bg-white border border-[#e4e4e7] rounded-[4px] shadow-lg z-50 py-1">
+          <div className="absolute right-0 top-10 w-48 bg-white border border-[#a1a1aa] rounded-[4px] shadow-lg z-50 py-1">
             <div className="px-3 py-2 border-b border-[#f4f4f5]">
               <div className="text-xs font-semibold text-[#0d0d0d] truncate">{displayName}</div>
               <div className="text-[11px] text-[#71717a] truncate">{user?.email}</div>

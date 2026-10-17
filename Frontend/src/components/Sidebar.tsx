@@ -38,9 +38,9 @@ export default function Sidebar({ activePage, onNavigate }: SidebarProps) {
     .toUpperCase() || "U";
 
   return (
-    <aside className="w-[220px] shrink-0 flex flex-col border-r border-[#e4e4e7] bg-white h-full">
+    <aside className="w-[220px] shrink-0 flex flex-col border-r border-[#a1a1aa] bg-white h-full">
       {/* Logo */}
-      <div className="px-5 py-5 border-b border-[#e4e4e7]">
+      <div className="px-5 py-5 border-b border-[#a1a1aa]">
         <div className="flex items-center gap-2">
           <div className="w-7 h-7 bg-[#0d0d0d] rounded-[4px] flex items-center justify-center shrink-0">
             <ShieldIcon />
@@ -59,11 +59,10 @@ export default function Sidebar({ activePage, onNavigate }: SidebarProps) {
               <li key={item.id}>
                 <button
                   onClick={() => onNavigate(item.id)}
-                  className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-[4px] text-sm transition-colors text-left ${
-                    isActive
+                  className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-[4px] text-sm transition-colors text-left ${isActive
                       ? "bg-[#0d0d0d] text-white"
                       : "text-[#3f3f46] hover:bg-[#f4f4f5] hover:text-[#0d0d0d]"
-                  }`}
+                    }`}
                 >
                   <Icon active={isActive} />
                   <span className="font-medium flex-1">{item.label}</span>
@@ -78,7 +77,7 @@ export default function Sidebar({ activePage, onNavigate }: SidebarProps) {
           })}
         </ul>
 
-        <div className="mt-6 pt-4 border-t border-[#e4e4e7]">
+        <div className="mt-6 pt-4 border-t border-[#a1a1aa]">
           <ul className="space-y-0.5">
             {bottomItems.map((item) => {
               const Icon = item.icon;
@@ -87,11 +86,10 @@ export default function Sidebar({ activePage, onNavigate }: SidebarProps) {
                 <li key={item.id}>
                   <button
                     onClick={() => onNavigate(item.id)}
-                    className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-[4px] text-sm transition-colors text-left ${
-                      isActive
+                    className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-[4px] text-sm transition-colors text-left ${isActive
                         ? "bg-[#0d0d0d] text-white"
                         : "text-[#3f3f46] hover:bg-[#f4f4f5] hover:text-[#0d0d0d]"
-                    }`}
+                      }`}
                   >
                     <Icon active={isActive} />
                     <span className="font-medium">{item.label}</span>
@@ -104,7 +102,7 @@ export default function Sidebar({ activePage, onNavigate }: SidebarProps) {
       </nav>
 
       {/* Profile */}
-      <div className="px-3 pb-4 pt-2 border-t border-[#e4e4e7]">
+      <div className="px-3 pb-4 pt-2 border-t border-[#a1a1aa]">
         <button
           onClick={() => onNavigate("settings")}
           className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-[4px] hover:bg-[#f4f4f5] transition-colors text-left"
