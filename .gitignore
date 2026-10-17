@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+backend/node_modules/
+Frontend/node_modules/
+
+# Production build outputs
+dist/
+backend/dist/
+Frontend/dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+Frontend/.env
+Frontend/.env.*
+!Frontend/.env.example
+
+# Logs
+*.log
+logs/
+
+# IDE / OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local MongoDB database files
+/backend/data/db/

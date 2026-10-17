@@ -1,0 +1,10 @@
+{
+  "description": "Effortlessly manage warranties and receipts by digitally storing product information, tracking warranty statuses, and ensuring timely claims.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
